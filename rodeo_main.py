@@ -108,6 +108,8 @@ def __main__():
                         help="Print precursors in HTML file")
     parser.add_argument('-w', '--web', action='store_true', default=False,
                         help="Only to use when running as a web tool")
+    parser.add_argument('-d', '--input_dir', default=False,
+                        help="Local directory with genomic genbank files. Cancels genomic files download from NCBI. Files must be named with protein accessions and have .gbk extension")
     
     args, _ = parser.parse_known_args()
 #==============================================================================

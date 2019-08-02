@@ -43,6 +43,7 @@ from rodeo_main import VERBOSITY, QUEUE_CAP
 import traceback
 import sys
 import glob
+from local_gbk_utils import get_local_gb_handles
 
 logger = logging.getLogger(__name__)
 logger.setLevel(VERBOSITY)
@@ -126,7 +127,10 @@ def fill_request_queue(queries, processed_records_q, unprocessed_records_q, args
     for query in queries:
         try:
             logger.debug("Fetching %s data" % query)
-            gb_handles = get_gb_handles(query)
+            if args.input_dir:
+                gb_handles = get_local_gb_handles(query, args.input_dir)
+            else:
+                gb_handles = get_gb_handles(query)
             nuccore_accession = query
             if gb_handles < 0:
                 if gb_handles == -1:
@@ -135,6 +139,11 @@ def fill_request_queue(queries, processed_records_q, unprocessed_records_q, args
                     error_message = "No results in nuccore db for value obtained from protein db"
                 elif gb_handles == -3:
                     error_message = "Any response failure from Entrez database (error on database side)"
+                elif gb_handles == -4:
+                    error_message = "No genbank file for %s in %s" % (query, gbk_dir)
+                elif gb_handles == -5:
+                    error_message = "No such directory: %s" % (gbk_dir)
+                    return
                 else:
                     error_message = "Unknown Entrez error."
                 unprocessed_records_q.put(ErrorReport(query, error_message))
