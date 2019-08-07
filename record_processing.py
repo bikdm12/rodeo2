@@ -140,9 +140,9 @@ def fill_request_queue(queries, processed_records_q, unprocessed_records_q, args
                 elif gb_handles == -3:
                     error_message = "Any response failure from Entrez database (error on database side)"
                 elif gb_handles == -4:
-                    error_message = "No genbank file for %s in %s" % (query, gbk_dir)
+                    error_message = "No genbank file for %s in %s" % (query, args.input_dir)
                 elif gb_handles == -5:
-                    error_message = "No such directory: %s" % (gbk_dir)
+                    error_message = "No such directory: %s" % (args.input_dir)
                     return
                 else:
                     error_message = "Unknown Entrez error."
