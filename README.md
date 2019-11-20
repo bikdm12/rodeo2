@@ -1,3 +1,17 @@
+# Modified RODEO 2
+This is modified version of the original [RODEO2](https://github.com/the-mitchell-lab/rodeo2).
+This version has one additional feature: it can process locally stored genomic genbank files instead of downloading them from NCBI. Files must be named with protein accessions and have ".gbk" extension.
+
+
+## Usage
+By default genomic files are downloaded from NCBI just as in the original RODEO 2. To work with locally stored files a directory containing those files need to be specified:
+
+`python rodeo_main.py -d gbk_dir/ query`
+or
+`python rodeo_main.py --input_dir gbk_dir/ query`
+
+In this case directory gbk_dir/ must contain file query.gbk
+
 # RODEO 2
 Welcome to the new RODEO! Exhaustive documentation on how RODEO2 should be used can be found on the [RODEO website.](www.ripprodeo.org) The explanation below is a brief summary of how to use RODEO. Please report any bugs either via GitHub or by contacting the developers directly.
 
