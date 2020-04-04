@@ -4,13 +4,13 @@ This version has one additional feature: it can process locally stored genomic g
 
 
 ## Usage
-By default genomic files are downloaded from NCBI just as in the original RODEO 2. To work with locally stored files a directory containing those files need to be specified:
+By default genomic files are downloaded from NCBI (just as in the original RODEO 2). To process the locally stored files you need to specify a directory:
 
 `python rodeo_main.py -d gbk_dir/ query`
 or
 `python rodeo_main.py --input_dir gbk_dir/ query`
 
-In this case directory gbk_dir/ must contain file query.gbk
+Genbank files must be named with query protein accsession number and bear an extension '.gbk'. Example: `gbk_dir/WP_020387003.1.gbk`
 
 # RODEO 2
 Welcome to the new RODEO! Exhaustive documentation on how RODEO2 should be used can be found on the [RODEO website.](www.ripprodeo.org) The explanation below is a brief summary of how to use RODEO. Please report any bugs either via GitHub or by contacting the developers directly.
