@@ -1,7 +1,6 @@
 # Modified RODEO 2
 This is modified version of the original [RODEO2](https://github.com/the-mitchell-lab/rodeo2).
-This version has one additional feature: it can process locally stored genomic genbank files instead of downloading them from NCBI. Files must be named with protein accessions and have ".gbk" extension.
-
+This version has one additional feature: it can process locally stored genomic genbank files instead of downloading them from NCBI. 
 
 ## Usage
 By default genomic files are downloaded from NCBI (just as in the original RODEO 2). To process the locally stored files you need to specify a directory:
